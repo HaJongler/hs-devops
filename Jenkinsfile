@@ -7,10 +7,15 @@ pipeline {
    }
 
    stages {
-      stage('Hello') {
+      stage('Build') {
          steps {
              sh 'go build'
          }
       }
+	  stage('Publish') {
+		steps {
+			archiveArtifacts 'Class2'
+		}
+	  }
    }
 }
