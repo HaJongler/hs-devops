@@ -14,7 +14,7 @@ pipeline {
       }
 	  stage('Publish') {
 		steps {
-			archiveArtifacts 'Class2'
+			archiveArtifacts 'Class2multi'
 		}
 	  }
    }
