@@ -10,7 +10,7 @@ pipeline {
 			steps {
 				script {
 					docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {					
-						def customImage = docker.build("jonathanhar/simple-go-server:latest", "./Dockerfile.jenkins")
+						def customImage = docker.build("jonathanhar/simple-go-server:latest", "./docker")
 						customImage.push()						
 					}
 				}
