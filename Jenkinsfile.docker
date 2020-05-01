@@ -1,0 +1,20 @@
+pipeline {
+	agent any
+	stages {
+		stage('Copy artifact') {
+			steps {
+				copyArtifacts filter: 'Class2', fingerprintArtifacts: true, projectName: 'Class2', selector: lastSuccessful()
+			}
+		}
+		stage('Docker build and upload to ') {
+			steps {
+				script {
+					docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {					
+						def customImage = docker.build("jonathanhar/simple-go-server:latest", "./Dockerfile.jenkins")
+						customImage.push()						
+					}
+				}
+			}
+		}
+	}
+}
