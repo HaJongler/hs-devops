@@ -9,7 +9,7 @@ pipeline {
 		stage('Docker build and upload to ') {
 			steps {
 				script {
-					docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {					
+					docker.withRegistry('', 'dockerhub') {					
 						def customImage = docker.build("jonathanhar/simple-go-server:latest", "./docker")
 						customImage.push()						
 					}
