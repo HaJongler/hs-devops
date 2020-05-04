@@ -18,7 +18,7 @@ pipeline {
 		}
 		stage('Publish') { 
 			steps { 
-				archiveArtifacts 'Class2multi_master'
+				archiveArtifacts 'GoServerWithTests'
 			}
 		}
 	}
