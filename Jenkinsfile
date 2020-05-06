@@ -12,11 +12,6 @@ pipeline {
 	}
 	
 	stages {
-		stage('Our test') {
-			steps {
-				sh 'go version'
-			}
-		}
 		stage('Test') { 
 			steps {
 				sh 'go test'
