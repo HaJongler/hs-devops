@@ -12,14 +12,15 @@ pipeline {
 	}
 	
 	stages {
-		stage('Test') { 
+		stage('Get dependencies') { 
 			steps {
 				sh "go get \"github.com/aws/aws-lambda-go/lambda\""
 			}
 		}
 		stage('Build') { 
 			steps {
-				sh 'go build -o myLambdaScript myLambdaScript.go'
+				sh 'GOOS=linux GOARCH=amd64 go build -o myLambdaScript myLambdaScript.go'
+				sh 'zip myLambdaScript.zip myLambdaScript'
 			}
 		}
 		stage('Publish') { 
