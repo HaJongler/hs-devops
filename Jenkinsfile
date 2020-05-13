@@ -14,17 +14,17 @@ pipeline {
 	stages {
 		stage('Test') { 
 			steps {
-				sh 'go test'
+				sh "go get \"github.com/aws/aws-lambda-go/lambda\""
 			}
 		}
 		stage('Build') { 
 			steps {
-				sh 'go build -o GoServerWithTests'
+				sh 'go build -o myLambdaScript myLambdaScript.go'
 			}
 		}
 		stage('Publish') { 
 			steps { 
-				archiveArtifacts 'GoServerWithTests'
+				archiveArtifacts 'myLambdaScript'
 			}
 		}
 	}
