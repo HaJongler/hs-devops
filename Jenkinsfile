@@ -25,7 +25,7 @@ pipeline {
 		}
 		stage('Publish') { 
 			steps { 
-				archiveArtifacts 'myLambdaScript'
+				archiveArtifacts 'myLambdaScript.zip'
 			}
 		}
 	}
