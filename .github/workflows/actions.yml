@@ -13,6 +13,7 @@ jobs:
       - name: Let's go!
         uses: docker/build-push-action@v1
         with:
+          path: ../../
           username: jonathanhar
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: jonathanhar/simple-go-server
