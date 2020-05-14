@@ -8,7 +8,7 @@ on:
 
 jobs:
   get_to_dockerhub:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     steps:
       - name: Let's go!
         uses: docker/build-push-action@v1
