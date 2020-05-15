@@ -1,6 +1,6 @@
-FROM golang:latest
+FROM ruby:2.0.0-p648
 WORKDIR /app
-COPY main.go ./
-RUN go build main.go
-EXPOSE 9090
-CMD ["./main"]
+COPY web.rb ./
+RUN gem install sinatra -v 1.4.8
+EXPOSE 9100
+CMD [ "ruby", "web.rb" ]
